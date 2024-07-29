@@ -1,0 +1,38 @@
+<%- include("partials/header.html") %>
+
+
+
+    <div class="bodycontent">
+
+        <div class="mb-3">
+            <form action="/submit" method="POST">
+                <input type="text" name="title" class="form-control" id="textInput" placeholder="Enter the title"> <br>
+                <textarea class="form-control" id="textArea" name="blog" rows="3"
+                    placeholder="Enter your blog"></textarea>
+                <input type="submit" class="form-control bg-black text-light" value="Create a new blog" />
+            </form>
+
+        </div>
+
+    </div>
+
+    <% if(locals.blogList && locals.blogId ) { %>
+        <div class="bodycontent">
+            <h1> Previous Posts</h1>
+            <div class="mb-3">
+                <% for (let i=0 ; i<blogId.length; i++){ %>
+
+                    <form action="/blog/<%= blogId[i]%>" method="POST">
+                        <input type="submit" class="form-control bg-white" value=" <%= blogList[blogId[i]] %>">
+                    </form>
+                    </form>
+                    <form action="/delete/<%= blogId[i] %>" method="POST" style="display:inline;">
+                        <input type="submit" class="form-control bg-danger text-white" value="Delete">
+                    </form>
+                    <br>
+                    <% } %>
+            </div>
+        </div>
+        <%} %>
+
+            <%- include("partials/footer.html") %>

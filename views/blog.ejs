@@ -1,0 +1,16 @@
+<%- include("partials/header.html") %>
+
+
+    <% if(locals.blogTitle && locals.blogCont) { %>
+        <div class="bodycontent response ">
+            <h1>
+                <%= blogTitle %>
+            </h1>
+            <p>
+                <%= blogCont %>
+            </p>
+        </div>
+        <% } %>
+
+
+            <%- include("partials/footer.html") %>
